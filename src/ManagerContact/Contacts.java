@@ -7,6 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Contacts {
+    private static final String REGEX_EMAIL = "[a-z]+[a-z0-9._]*@gmail.com$";
+    private static final String PHONE_NUMBER = "^(03|05|07|08|09)+([0-9]{8})$";
     private String phoneNumber;
     private String groupContact;
     private String fullName;
@@ -43,8 +45,7 @@ public class Contacts {
     }
 
     public void setPhoneNumber(String phoneNumber) throws InvalidPhoneNumberException {
-        String regex = "^(03|05|07|08|09)+([0-9]{8})$";
-        Pattern pattern = Pattern.compile(regex);
+        Pattern pattern = Pattern.compile(PHONE_NUMBER);
         Matcher matcher = pattern.matcher(phoneNumber);
         if (matcher.matches()) {
             this.phoneNumber = phoneNumber;
@@ -98,8 +99,7 @@ public class Contacts {
     }
 
     public void setEmail(String email) throws InvalidEmailException {
-        String regex = "[a-z]+[a-z0-9._]*@gmail.com$";
-        Pattern part = Pattern.compile(regex);
+        Pattern part = Pattern.compile(REGEX_EMAIL);
         Matcher matcher = part.matcher(email);
         if (matcher.matches()){
             this.email = email;

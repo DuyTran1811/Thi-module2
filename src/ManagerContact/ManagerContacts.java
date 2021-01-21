@@ -1,7 +1,5 @@
 package ManagerContact;
 
-import ManagerContact.Exception.InvalidEmailException;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +15,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Nhập Thông Tin
+     *
      * @param input Nhập Dữ Liệu
      */
     public void ceartContacts(Scanner input) {
@@ -40,6 +39,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Hiển Thị Thông Tin Theo Hàng Cột
+     *
      * @param lists Danh Sách
      */
     public void showContacts(List<Contacts> lists) {
@@ -54,6 +54,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Update Thông Tin
+     *
      * @param input Nhập Liệu Đầu Vào
      */
     public void upDateContacts(Scanner input) {
@@ -64,14 +65,12 @@ public class ManagerContacts {
                 if (c.getPhoneNumber().compareTo(phone) == 0) {
                     System.out.println("Nhập Tên Nhómg");
                     c.setGroupContact(input.nextLine());
+                    System.out.println("Nhập Tên");
                     c.setFullName(input.nextLine());
+                    System.out.println("Nhập Giới Tính");
+                    c.setGender(input.nextLine());
+                    System.out.println("Nhập Địa Chỉ");
                     c.setAddress(input.nextLine());
-                    c.setDateOfBirth(input.nextLine());
-                    try {
-                        c.setEmail(input.nextLine());
-                    } catch (InvalidEmailException e) {
-                        System.err.println(e.getInvalidEmailException());
-                    }
                 }
             }
         } else {
@@ -81,6 +80,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Xoá 1 Số Điện Thoại Cho Trước
+     *
      * @param input Nhập Dữ Liệu
      * @return Trả Về True là đã được xoá còn false là ngược lại
      */
@@ -98,6 +98,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Tìm Kiếm Số Điện Thoại
+     *
      * @param input Nhập Liệu
      */
     public void searchNumber(Scanner input) {
@@ -114,6 +115,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Ghi File
+     *
      * @return True đã ghi file thành công false là ngược lại
      */
     public boolean writerFile() {
@@ -140,6 +142,7 @@ public class ManagerContacts {
 
     /**
      * Phương Thức Đọc File
+     *
      * @return Trả về một list
      */
     private List<Contacts> readFromToFile() {
@@ -148,7 +151,7 @@ public class ManagerContacts {
         try {
             file.createNewFile();
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 String phone = scanner.nextLine();
                 String group = scanner.nextLine();
                 String fullName = scanner.nextLine();
@@ -156,11 +159,11 @@ public class ManagerContacts {
                 String address = scanner.nextLine();
                 String dateOfBirth = scanner.nextLine();
                 String email = scanner.nextLine();
-                Contacts contacts = new Contacts(phone,group,
-                        fullName,gender,address,dateOfBirth,email);
+                Contacts contacts = new Contacts(phone, group,
+                        fullName, gender, address, dateOfBirth, email);
                 list.add(contacts);
             }
-                scanner.close();
+            scanner.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
