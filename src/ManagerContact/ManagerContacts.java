@@ -20,19 +20,19 @@ public class ManagerContacts {
      * @param input Nhập Dữ Liệu
      */
     public void ceartContacts(Scanner input) {
-        System.out.println("Nhap So Dien Thoai");
+        System.out.println("Nhập Số Điện Thoại");
         String phone = input.nextLine();
-        System.out.println("Nhap Ten Nhom Nhom");
+        System.out.println("Nhập Tên Nhóm");
         String group = input.nextLine();
-        System.out.println("Nhap Ho Va Ten");
+        System.out.println("Nhập Họ Và Tên");
         String fullName = input.nextLine();
-        System.out.println("Nhap Gio Tinh");
+        System.out.println("Nhập Giớ Tính");
         String gender = input.nextLine();
-        System.out.println("Nhap Dia Chi");
+        System.out.println("Nhập Địa Chỉ");
         String address = input.nextLine();
-        System.out.println("Nhap Ngay Thang Nam Sinh");
+        System.out.println("Nhập Ngày Tháng Năm Sinh");
         String dateOfBirth = input.nextLine();
-        System.out.println("Nhap Email");
+        System.out.println("Nhập Email");
         String email = input.nextLine();
         Contacts contacts = new Contacts(phone, group, fullName, gender, address, dateOfBirth, email);
         list.add(contacts);
@@ -58,11 +58,11 @@ public class ManagerContacts {
      */
     public void upDateContacts(Scanner input) {
         if (list.size() > 0) {
-            System.out.println("Nhap So Dien Thoai Ban Muon Cap Nhat");
+            System.out.println("Nhập Số Điện Thoại Bạn Muốn Cập Nhật");
             String phone = input.nextLine().trim();
             for (Contacts c : list) {
                 if (c.getPhoneNumber().compareTo(phone) == 0) {
-                    System.out.println("Nhap Ten Nhom");
+                    System.out.println("Nhập Tên Nhómg");
                     c.setGroupContact(input.nextLine());
                     c.setFullName(input.nextLine());
                     c.setAddress(input.nextLine());
